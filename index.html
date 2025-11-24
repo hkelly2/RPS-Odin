@@ -11,8 +11,20 @@
         let computerScore = 0;
         let humanScore = 0;
 
-        console.log (getComputerChoice());
-        console.log (getPlayerChoice());
+        alert("Welcome to Holt Kelly's RPS-bot 1000 Ultra Extreme Edition!");
+
+        playGame();
+        playGame();
+        playGame();
+        playGame();
+        playGame();
+        endGame();
+
+        function playGame(){
+            let computerChoice = getComputerChoice();
+            let PlayerChoice = getPlayerChoice();
+            playRound(computerChoice, PlayerChoice);
+        }
 
         function getComputerChoice(){
             return Math.floor(Math.random() * 3);
@@ -35,6 +47,88 @@
                     playerc = 3;
             }
             return playerc;
+        }
+
+        function playRound(com, play){
+            switch (play) {
+                case 0:
+                    switch (com) {
+                        case 0:
+                            alert ("Rock ties with rock :/")
+                            console.log ("Rock ties with rock :/");
+                            break;
+                        case 1:
+                            alert ("Rock loses to Paper :(");
+                            console.log ("Rock loses to Paper :(");
+                            computerScore++;
+                            break;
+                        case 2:
+                            alert ("Rock beats scissors! :)")
+                            console.log ("Rock beats scissors! :)");
+                            humanScore++;
+                            break;
+                        default:
+                            alert ("no case error :)");
+                            console.log ("no case error :)");
+                    }
+                    break;
+                case 1:
+                    switch (com) {
+                        case 0:
+                            alert ("Paper beats rock! :)")
+                            console.log ("Paper beats rock! :)");
+                            humanScore++;
+                            break;
+                        case 1:
+                            alert ("Paper ties with paper :/");
+                            console.log ("Paper ties with paper :/");
+                            break;
+                        case 2:
+                            alert ("Paper loses to scissors :(")
+                            console.log ("Paper loses to scissors :(");
+                            computerScore++;
+                            break;
+                        default:
+                            alert ("no case error :)")
+                            console.log ("no case error :)");
+                    }
+                    break;
+                case 2:
+                    switch (com) {
+                        case 0:
+                            alert ("Scissors loses to rock :(")
+                            console.log ("Scissors loses to rock :(");
+                            computerScore++;
+                            break;
+                        case 1:
+                            alert ("Scissors beats paper! :)");
+                            console.log ("Scissors beats paper! :)");
+                            humanScore++;
+                            break;
+                        case 2:
+                            alert ("Scissors ties with scissors :/")
+                            console.log ("Scissors ties with scissors :/");
+                            break;
+                        default:
+                            alert ("no case error :)");
+                            console.log ("no case error :)");
+                    }
+                    break;
+                default:
+                    alert ("no case error :)");
+                    console.log ("no case error :)");
+            }
+            alert ("Player Score: " + humanScore + " Computer Score: " + computerScore);
+        }
+
+        function endGame(com, play){
+            if (play > com) {
+                alert ("Player Wins! :D");
+            } else if (com > play) {
+                alert ("Computer Wins... :(")
+            } else if (play === com) {
+                alert ("Tie. :/");
+            }
         }
     </script>
 </body>
